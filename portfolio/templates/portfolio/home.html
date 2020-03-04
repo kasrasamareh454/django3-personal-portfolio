@@ -1,0 +1,38 @@
+
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<div align='center'><h1>In the name of GOD</h1></div>
+
+<div align='center'><h2>Hex group</h2></div>
+
+{% load static %}
+
+<a href="{% static 'portfolio/49453.pdf' %}">Resume</a>
+
+{% for project in projects %}
+
+<br>
+
+<a href="{%url 'blog:all_blogs' %}">blog</a>
+
+<br>
+
+<img src="{% static 'portfolio/logo_transparent.png' %} "  height="550" width="550">
+
+<h1>{{ project.title }}</h1>
+
+<p>{{ project.description }}</p>
+
+
+<img src="{{ project.image.url }}" height="400" width="400">
+{% if project.url %}
+
+<a href="{{ project.url }}">tap to go to website</a>
+
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}
